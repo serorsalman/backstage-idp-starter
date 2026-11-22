@@ -1,0 +1,14 @@
+# Local development overrides.
+#
+# This file is an example. Copy it to app-config.local.yaml for your own
+# machine and never commit real tokens or secrets.
+#
+# backend:
+#   database:
+#     client: better-sqlite3
+#     connection: ":memory:"
+
+backend:
+  database:
+    client: better-sqlite3
+    connection: ":memory:"

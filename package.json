@@ -1,0 +1,23 @@
+{
+  "description": "Backstage internal developer platform starter: service catalog and golden-path template (portfolio demo)",
+  "devDependencies": {
+    "@backstage/cli": "^0.26.0",
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "name": "backstage-idp-starter",
+  "private": true,
+  "scripts": {
+    "build": "backstage-cli package build --config app-config.yaml",
+    "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
+    "new": "backstage-cli new",
+    "start": "backstage-cli package start --config app-config.yaml --config app-config.local.yaml",
+    "start-backend": "backstage-cli package start --config app-config.yaml --config app-config.local.yaml"
+  },
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/*"
+  ]
+}

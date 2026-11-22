@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-api
+  description: Demo Go API service, the example component for the catalog.
+  annotations:
+    github.com/project-slug: serorsalman/go-microservice-cicd
+  tags:
+    - go
+    - api
+spec:
+  type: service
+  lifecycle: experimental
+  owner: platform-team

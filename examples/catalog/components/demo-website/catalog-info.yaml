@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-website
+  description: Demo static website, the second example component for the catalog.
+  tags:
+    - website
+    - frontend
+spec:
+  type: website
+  lifecycle: experimental
+  owner: platform-team

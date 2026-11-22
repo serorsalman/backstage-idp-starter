@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@backstage/backend-common": "^0.21.0",
+    "@backstage/backend-defaults": "^0.3.0",
+    "@backstage/backend-plugin-api": "^0.7.0",
+    "@backstage/cli": "^0.26.0",
+    "@backstage/plugin-auth-backend": "^0.22.0",
+    "@backstage/plugin-catalog-backend": "^1.23.0",
+    "@backstage/plugin-scaffolder-backend": "^1.22.0",
+    "@backstage/plugin-techdocs-backend": "^1.10.0"
+  },
+  "main": "src/index.ts",
+  "name": "backend",
+  "private": true,
+  "scripts": {
+    "build": "backstage-cli package build --config ../../app-config.yaml",
+    "start": "backstage-cli package start --config ../../app-config.yaml --config ../../app-config.local.yaml"
+  },
+  "types": "src/index.ts",
+  "version": "0.0.0"
+}

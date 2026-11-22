@@ -1,0 +1,49 @@
+apiVersion: scaffolder.backstage.io/v1beta1
+kind: Template
+metadata:
+  name: go-service
+  title: Go Service
+  description: Scaffold a new Go REST microservice with CI/CD.
+  tags:
+    - go
+    - recommended
+spec:
+  owner: platform-team
+  type: service
+  parameters:
+    - title: Service details
+      required: [name, owner]
+      properties:
+        name:
+          title: Service name
+          type: string
+          description: Unique name for the service
+          pattern: ^[a-z0-9-]+$
+        owner:
+          title: Owner
+          type: string
+          description: Owning team
+          default: platform-team
+  steps:
+    - id: fetch-base
+      name: Fetch base
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        description: ${{ parameters.name }}
+        repoUrl: github.com?owner=serorsalman&repo=${{ parameters.name }}
+        defaultBranch: main
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publish.output.remoteUrl }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: component:default/${{ parameters.name }}

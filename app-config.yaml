@@ -1,0 +1,56 @@
+app:
+  title: Internal Developer Platform
+  baseUrl: http://localhost:3000
+
+organization:
+  name: Demo Org
+
+backend:
+  baseUrl: http://localhost:7007
+  listen:
+    port: 7007
+  csp:
+    connect-src: ["'self'", "http://localhost:7007"]
+  cors:
+    origin: http://localhost:3000
+    methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
+    credentials: true
+  database:
+    client: better-sqlite3
+    connection: ":memory:"
+
+integrations:
+  github:
+    - host: github.com
+      token: ${GITHUB_TOKEN}
+
+catalog:
+  import:
+    entityFilename: catalog-info.yaml
+    pullRequestBranchName: backstage-integration
+  rules:
+    - allow: [Component, System, API, Resource, Location]
+  locations:
+    - type: file
+      target: ../../examples/catalog/components/demo-api/catalog-info.yaml
+    - type: file
+      target: ../../examples/catalog/components/demo-website/catalog-info.yaml
+    - type: file
+      target: ../../examples/scaffolder-templates/go-service/template.yaml
+
+auth:
+  environment: development
+  providers:
+    guest: {}
+
+scaffolder:
+  defaultAuthor:
+    name: Seror Salman
+    email: serorsalman@gmail.com
+
+techdocs:
+  builder: local
+  generator:
+    runIn: docker
+  publisher:
+    type: local
