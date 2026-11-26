@@ -38,7 +38,7 @@ spec:
       action: publish:github
       input:
         description: ${{ parameters.name }}
-        repoUrl: github.com?owner=serorsalman&repo=${{ parameters.name }}
+        repoUrl: github.com?owner=serorromero&repo=${{ parameters.name }}
         defaultBranch: main
   output:
     links:

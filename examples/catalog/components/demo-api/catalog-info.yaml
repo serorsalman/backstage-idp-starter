@@ -4,7 +4,7 @@ metadata:
   name: demo-api
   description: Demo Go API service, the example component for the catalog.
   annotations:
-    github.com/project-slug: serorsalman/go-microservice-cicd
+    github.com/project-slug: serorromero/go-microservice-cicd
   tags:
     - go
     - api

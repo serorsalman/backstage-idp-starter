@@ -1,3 +1,3 @@
-module github.com/serorsalman/${{ values.name }}
+module github.com/serorromero/${{ values.name }}
 
 go 1.22
